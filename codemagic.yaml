@@ -1,21 +1,30 @@
 workflows:
   android-workflow:
-    name: Android Build
+    name: Android Build (Debug)
     max_build_duration: 120
     environment:
-      android_signing:
-        - keystore_reference
       groups:
         - google_play
       vars:
         PACKAGE_NAME: "com.example.livedub"
+
     scripts:
       - name: Set up local.properties
-        script: | 
-          echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/local.properties"
-      - name: Build Android Debug APK
-        script: | 
+        script: |
           cd livedub_android
-          ./gradlew assembleDebug
+          echo "sdk.dir=$ANDROID_SDK_ROOT" > local.properties
+
+      - name: Enable AndroidX
+        script: |
+          cd livedub_android
+          echo "android.useAndroidX=true" >> gradle.properties
+          echo "android.enableJetifier=true" >> gradle.properties
+
+      - name: Build Android Debug APK
+        script: |
+          cd livedub_android
+          chmod +x gradlew
+          ./gradlew assembleDebug --stacktrace
+
     artifacts:
       - livedub_android/app/build/outputs/apk/debug/*.apk
