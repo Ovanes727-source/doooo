@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">LiveDub</string>
+    <string name="start_service">Start Translation Overlay</string>
+    <string name="stop_service">Stop Service</string>
+    <string name="permission_required">Permissions Required</string>
+    <string name="permission_desc">This app needs Overlay and Audio Recording permissions to function.</string>
+</resources>
