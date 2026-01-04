@@ -1,0 +1,21 @@
+workflows:
+  android-workflow:
+    name: Android Build
+    max_build_duration: 120
+    environment:
+      android_signing:
+        - keystore_reference
+      groups:
+        - google_play
+      vars:
+        PACKAGE_NAME: "com.example.livedub"
+    scripts:
+      - name: Set up local.properties
+        script: | 
+          echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/local.properties"
+      - name: Build Android Debug APK
+        script: | 
+          cd livedub_android
+          ./gradlew assembleDebug
+    artifacts:
+      - livedub_android/app/build/outputs/apk/debug/*.apk
