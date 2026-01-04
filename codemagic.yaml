@@ -6,8 +6,6 @@ workflows:
     environment:
       groups:
         - google_play
-      vars:
-        PACKAGE_NAME: "com.example.livedub"
 
     scripts:
       - name: Set up local.properties
@@ -22,7 +20,7 @@ workflows:
       - name: Build Android Debug APK
         script: |
           chmod +x gradlew
-          ./gradlew :livedub_android:assembleDebug --stacktrace
+          ./gradlew assembleDebug --stacktrace
 
     artifacts:
-      - livedub_android/app/build/outputs/apk/debug/*.apk
+      - app/build/outputs/apk/debug/*.apk
