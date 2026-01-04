@@ -41,7 +41,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun checkPermissionsAndStart() {
         if (!Settings.canDrawOverlays(this)) {
-            val intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:$packageName"))
+            val intent = Intent(
+                Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                Uri.parse("package:$packageName")
+            )
             startActivity(intent)
             Toast.makeText(this, "Please grant Overlay permission", Toast.LENGTH_LONG).show()
             return
@@ -52,7 +55,7 @@ class MainActivity : AppCompatActivity() {
                 android.Manifest.permission.RECORD_AUDIO,
                 android.Manifest.permission.FOREGROUND_SERVICE
             )
-            .request { allGranted, _, _ ->
+            .request { allGranted: Boolean, _, _ ->
                 if (allGranted) {
                     requestScreenCapture()
                 } else {
