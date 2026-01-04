@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LiveDub</string>
+    <string name="permission_desc">This app needs Overlay and Audio Recording permissions to function.</string>
+    <string name="permission_required">Permissions Required</string>
+    <string name="start_service">Start Translation Overlay</string>
+    <string name="stop_service">Stop Service</string>
+    <style name="Base.Theme.LiveDub" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        
+    </style>
+    <style name="Theme.LiveDub" parent="Base.Theme.LiveDub"/>
+</resources>

@@ -1,0 +1,15 @@
+R_DEF: Internal format may change without notice
+local
+id btnStartService
+id overlayIcon
+layout activity_main
+layout overlay_view
+string app_name
+string permission_desc
+string permission_required
+string start_service
+string stop_service
+style Base.Theme.LiveDub
+style Theme.LiveDub
+xml backup_rules
+xml data_extraction_rules
