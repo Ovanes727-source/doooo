@@ -4,7 +4,7 @@ workflows:
     max_build_duration: 60
     environment:
       vars:
-        JAVA_HOME: /usr/lib/jvm/java-17-openjdk
+        JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64
     scripts:
       - name: Navigate to project folder
         script: |
