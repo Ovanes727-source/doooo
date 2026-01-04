@@ -1,10 +1,8 @@
 workflows:
-  android-workflow:   # ← именно это имя теперь будет использоваться
+  android-workflow:
     name: Android Debug Build
     max_build_duration: 60
-    environment:
-      vars:
-        JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64
+
     scripts:
       - name: Navigate to project folder
         script: |
